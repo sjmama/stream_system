@@ -35,21 +35,6 @@ class Sdata:
         self.date=''
         self.time=''
         
-# def flagcontrol():
-    # sevent_flag=np.array([0])
-    # print(sevent_flag.nbytes)
-    # flagshm=shared_memory.SharedMemory(create=True, size=sevent_flag.nbytes)
-    # print('flag= '+flagshm.name)
-    # event_flag = np.ndarray(sevent_flag.shape, dtype=sevent_flag.dtype, buffer=flagshm.buf)
-    # event_flag[:]=sevent_flag[:]
-    # while True:
-    #     event_flag=0
-    #     time.sleep(10)
-    #     event_flag=1
-    #     time.sleep(10)
-    #     event_flag=2
-    #     time.sleep(5)
-        
 def Vsave(sdata, filename):
     global event_flag
     ref=db.reference('flag')
@@ -130,19 +115,6 @@ def showNsave(cam_no):
             Vsaveth=threading.Thread(target=Vsave, args=(sdata, new_filename))
             Vsaveth.start()
             innerflag=event_flag[0]
-            # ref=db.reference('flag')
-            # ref.set(event_flag)
-            # innerflag=event_flag
-            # out.release()
-            # os.rename("test.mp4", new_filename)
-            # s3.upload_file(new_filename,"sjmama1",new_filename)
-            # print('s3 upload!')
-            # sdata.link_storage='https://your s3 storage url/'+new_filename
-            # sdata_dict=sdata.__dict__
-            # print(sdata_dict)
-            # ref=db.reference('video')#저장한 파일은 삭제
-            # ref.push(sdata_dict)
-            # print('firebase push!')
             out = cv.VideoWriter(dst, fourcc, fps, (frame.shape[1], frame.shape[0]))
         
     out.release()
