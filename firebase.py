@@ -2,9 +2,9 @@ import firebase_admin
 from firebase_admin import credentials, db
 import datetime
 
-cred = credentials.Certificate("C:/Users/sjmama/sjmama-c1a00-firebase-adminsdk-bi9q1-50b5eea227.json")
+cred = credentials.Certificate("your credit path")
 firebase_admin.initialize_app(cred,
-                              {'databaseURL' : 'https://sjmama-c1a00-default-rtdb.firebaseio.com'})
+                              {'databaseURL' : 'your firebase url'})
 
 class Sdata:
     def __init__(self, cam_no):

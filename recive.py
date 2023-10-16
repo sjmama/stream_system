@@ -11,9 +11,9 @@ import multiprocessing as mp
 from multiprocessing import shared_memory
 import sys
 
-cred = credentials.Certificate("/share/NW/ai-smartsafetysystem-firebase-adminsdk-5doyf-30cbb7476f.json")
+cred = credentials.Certificate("your firebase credit path")
 firebase_admin.initialize_app(cred,
-                              {'databaseURL' : 'https://ai-smartsafetysystem-default-rtdb.firebaseio.com'})
+                              {'databaseURL' : 'your firebase url'})
 
 datapath='video'
 ref=db.reference(datapath)
@@ -56,7 +56,7 @@ def Vsave(sdata, filename):
     ref.set(str(event_flag[0]))
     s3.upload_file(filename,"sjmama1",filename)
     print('s3 upload!')
-    sdata.link_storage='https://sjmama1.s3.ap-northeast-2.amazonaws.com/'+sdata.date+'%'+sdata.date[2:4]+sdata.time+'.mp4'
+    sdata.link_storage='https://your_s3_storage_url/'+sdata.date+'%'+sdata.date[2:4]+sdata.time+'.mp4'
     sdata_dict=sdata.__dict__
     print(sdata_dict)
     ref=db.reference('video')#저장한 파일은 삭제
@@ -137,7 +137,7 @@ def showNsave(cam_no):
             # os.rename("test.mp4", new_filename)
             # s3.upload_file(new_filename,"sjmama1",new_filename)
             # print('s3 upload!')
-            # sdata.link_storage='https://sjmama1.s3.ap-northeast-2.amazonaws.com/'+new_filename
+            # sdata.link_storage='https://your s3 storage url/'+new_filename
             # sdata_dict=sdata.__dict__
             # print(sdata_dict)
             # ref=db.reference('video')#저장한 파일은 삭제
@@ -154,7 +154,7 @@ def showNsave(cam_no):
 def main():
     global cap
     cam_no='0000'
-    cap = cv.VideoCapture('rtmp://3.38.100.84:1935/live/'+cam_no)
+    cap = cv.VideoCapture('rtmp://stramserverip/stream app name/'+cam_no)
     S_S=threading.Thread(target=showNsave, args=(cam_no,))#show and save
     # fctl.start()
     if os.path.exists(dst):

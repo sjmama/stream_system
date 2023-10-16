@@ -4,7 +4,7 @@ import cv2 as cv
 import numpy as np
 from multiprocessing import shared_memory
 
-cap = cv.VideoCapture('rtmp://3.38.100.84:1935/live/0000')
+cap = cv.VideoCapture('rtmp://streamserverip/streamappname/stream code')
 ret,frame=cap.read()
 if not ret:
     print('not')

@@ -4,9 +4,9 @@ def s3_connection():
     try:
         s3 = to3.client(
             service_name="s3",
-            region_name="ap-northeast-2",
-            aws_access_key_id="AKIA5WAXLOULLNN23SGK",
-            aws_secret_access_key="bPTkW6PP54uO6cZxetkL/28nLuV2ttYtOkPLd6Tk",
+            region_name="your_s3 region_name",
+            aws_access_key_id="your_aws_access_key",
+            aws_secret_access_key="your_aws_credit",
         )
     except Exception as e:
         print(e)
