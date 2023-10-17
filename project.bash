@@ -31,6 +31,5 @@ while IFS= read -r line; do
         3) frame="$line" ;;
     esac
 done < "$file_path"
-python test.py $shape $flag $frame
-python lee.py $shape $flag $frame &
-python jun.py $shape $flag $frame &
+python object.py $shape $flag $frame &
+python human.py $shape $flag $frame &
